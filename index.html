@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="shortcut icon" href="cat.png" />
+<title>catsweeper</title>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+<link href="catsweeper.css" rel="stylesheet" />
+<style>
+  body { padding-top:50px; }
+  .navbar-brand { margin:0; padding:5px 15px; font-size:36px; line-height:40px; letter-spacing:4px; }
+  #content { padding:40px 15px; }
+  #meow-settings { margin-right:-15px; padding:12px 15px; opacity:0.8; }
+  #meow-settings .form-group { margin-left:15px; }
+  #meow-settings .control-label { letter-spacing:2px; color:#fff; }
+  #meow-settings .form-control { margin:0 4px; width:36px; height:26px; padding:4px 8px; text-align:center; }
+</style>
+</head>
+<body>
+
+<div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <h1 id="catsweeper" class="navbar-brand"><span style="color:#ff0000;">c</span><span style="color:#f26522;">a</span><span style="color:#fff200;">t</span><span style="color:#00a651;">s</span><span style="color:#28abe2;">w</span><span style="color:#2e3192;">e</span><span style="color:#6868ff;">e</span><span style="color:#ff0000;">p</span><span style="color:#f26522;">e</span><span style="color:#fff200;">r</span></h1>
+    </div>
+    <form id="meow-settings" class="form-inline pull-right">
+      <div class="form-group">
+        <input id="meow-rows" class="form-control" type="text" name="rows" value="8" />
+        <label for="meow-rows" class="control-label">rows</label>
+      </div>
+      <div class="form-group">
+        <input id="meow-columns" class="form-control" type="text" name="columns" value="8" />
+        <label for="meow-columns" class="control-label">columns</label>
+      </div>
+      <div class="form-group">
+        <input id="meow-cats" class="form-control" type="text" name="cats" value="10" />
+        <label for="meow-cats" class="control-label">cats</label>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="content" class="container">
+  <div class="catsweeper">
+    Loading...
+  </div>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="catsweeper.js"></script>
+<script>
+$(function() {
+
+  $('.catsweeper').catsweep({
+    rows: 8,
+    columns: 8,
+    cats: 10
+  });
+
+  $('#meow-settings')
+    .on('change', function(e) {
+      var game = $('.catsweeper').data('cat.game');
+      game.options[e.target.name] = e.target.value;
+      game.render();
+    })
+    .on('click', 'input', function(e) {
+      this.select();
+    });
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+
+.catgrid {
+  position: relative;
+  margin: 0 auto;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* prevent text select within game */
+  -webkit-user-select: none;
+   -khtml-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.catgrid .cell {
+  float: left;
+  display: block;
+  overflow: visible;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #fff;
+  background-color: #333;
+  font-size: 12px;
+  line-height: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  color: #333;
+  cursor: pointer;
+}
+
+.catgrid .cell:hover {
+  background-color: #fc1;
+}
+
+.catgrid .cell.seen {
+  background-color: #efefef;
+  cursor: default;
+}
+.catgrid .cell.fail {
+  background-color: #f99;
+  cursor: default;
+}
+
+.catgrid .cell.cat {
+  background-image: url('cat.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.win .catgrid .cell, .fail .catgrid .cell {
+  cursor: pointer;
+}
+
+.win .catgrid .cell {
+  color: #999;
+}
