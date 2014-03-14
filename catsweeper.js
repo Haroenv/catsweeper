@@ -52,6 +52,13 @@
     return this;
   };
 
+  Catsweeper.prototype.reset = function() {
+    this.$element.removeClass('win fail');
+    this.$cells.removeClass('seen fail cat').html('');
+
+    return this;
+  };
+
   // gamedata
   // ========
 
@@ -93,7 +100,7 @@
     }
 
     return counts;
-  }
+  };
 
   // gameplay
   // ========
@@ -105,13 +112,6 @@
     return this.reset();
   };
 
-  Catsweeper.prototype.reset = function() {
-    this.$element.removeClass('win fail');
-    this.$cells.removeClass('seen fail cat').html('');
-
-    return this;
-  }
-
   Catsweeper.prototype.validate = function() {
     var rows    = this.options.rows;
     var columns = this.options.columns;
@@ -122,6 +122,7 @@
       this.gameover(true);
     }
 
+    return this;
   };
 
   Catsweeper.prototype.gameover = function(win) {

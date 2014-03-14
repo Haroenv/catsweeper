@@ -1,7 +1,7 @@
 Catsweeper
 ==========
 
-A minesweeper game as jQuery plugin.
+A simple minesweeper game as jQuery plugin.
 
 ## Usage ##
 
@@ -12,5 +12,7 @@ $('.catsweeper').catsweep({
   cats: 10
 });
 ```
+
+## Credits ##
 
 _Cat icon by http://jasminnie.weebly.com/pixels2.html_
